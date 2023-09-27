@@ -1,0 +1,226 @@
+[05/07/2023 16:17:56] {options.py:447} INFO - 
+            accumulation_steps: 1                                       
+                         alpha: 1.0                                     
+                         beta2: 0.999                                   
+                checkpoint_dir: /home/016037047/atlas/atlas_data/experiments/	(default: ./checkpoint/)
+                          clip: 1.0                                     
+                   closed_book: False                                   
+  compute_crossattention_stats: False                                   
+                decoder_format: None                                    
+         decoder_prompt_format: None                                    
+                        device: cuda:0                                  	(default: None)
+           dont_write_passages: False                                   
+                       dropout: 0.001                                   	(default: 0.1)
+                encoder_format: {query} title: {title} context: {text}  
+                       epsilon: 1e-06                                   
+                     eval_data: ['/home/016037047/atlas/atlas_data/nq_data/evaluation2split1.jsonl']	(default: [])
+                     eval_freq: 10                                      	(default: 500)
+               faiss_code_size: None                                    
+              faiss_index_type: flat                                    
+  filtering_overretrieve_ratio: 2                                       
+        freeze_retriever_steps: -1                                      
+     generation_length_penalty: 1.0                                     
+         generation_max_length: 128                                     
+         generation_min_length: None                                    
+          generation_num_beams: 1                                       
+                   global_rank: 0                                       	(default: None)
+               gold_score_mode: ppmean                                  
+                    index_mode: flat                                    
+                is_distributed: True                                    	(default: None)
+                       is_main: True                                    	(default: None)
+                  is_slurm_job: True                                    	(default: None)
+               load_index_path: None                                    
+                    local_rank: 0                                       	(default: -1)
+                      log_freq: 1                                       	(default: 100)
+                            lr: 4e-05                                   	(default: 0.0001)
+                  lr_retriever: 4e-05                                   	(default: 1e-05)
+                     main_addr: cs002                                   	(default: None)
+                     main_port: 15270                                   	(default: -1)
+          max_lm_context_ratio: 0.5                                     
+                  max_passages: -1                                      
+          min_lm_context_ratio: 0.5                                     
+     min_words_per_lm_instance: None                                    
+    mlm_mean_noise_span_length: 3                                       
+             mlm_noise_density: 0.15                                    
+                    model_path: /home/016037047/atlas/atlas_data/models/atlas/large/	(default: none)
+                     multi_gpu: False                                   	(default: None)
+                    multi_node: False                                   	(default: None)
+multiple_choice_eval_permutations: single                                  
+   multiple_choice_num_options: 4                                       
+multiple_choice_train_permutations: single                                  
+                     n_context: 10                                      	(default: 1)
+                n_gpu_per_node: 1                                       	(default: None)
+                       n_nodes: 1                                       	(default: None)
+n_to_rerank_with_retrieve_with_rerank: 128                                     
+                          name: alt_large_warmup_50_WeightDecay_0.001   	(default: experiment_name)
+                       node_id: 0                                       	(default: None)
+                      passages: ['/home/016037047/atlas/atlas_data/corpora/wiki/enwiki-dec2018/unified-passage-set-v1.jsonl']	(default: None)
+            per_gpu_batch_size: 1                                       
+   per_gpu_embedder_batch_size: 512                                     
+                     precision: bf16                                    	(default: fp32)
+              qa_prompt_format: question: {question} answer: <extra_id_0>
+ query_side_retriever_training: True                                    	(default: False)
+             reader_model_type: google/t5-large-lm-adapt                	(default: None)
+                 refresh_index: -1                                      
+                 retrieve_only: False                                   
+          retrieve_with_rerank: False                                   
+              retriever_format: {title} {text}                          
+          retriever_model_path: facebook/contriever                     
+           retriever_n_context: 10                                      	(default: 5)
+                     save_freq: 100                                     	(default: 5000)
+           save_index_n_shards: 128                                     
+               save_index_path: /home/016037047/atlas/atlas_data/experiments//alt_large_warmup_50_WeightDecay_0.001/saved_index	(default: None)
+                save_optimizer: False                                   
+                     scheduler: linear                                  	(default: cosine)
+               scheduler_steps: None                                    
+                          seed: 0                                       
+                   shard_grads: True                                    	(default: False)
+                   shard_optim: True                                    	(default: False)
+                       shuffle: True                                    	(default: False)
+              target_maxlength: 16                                      	(default: None)
+                          task: qa                                      	(default: None)
+              temperature_gold: 1.0                                     	(default: 0.01)
+             temperature_score: 0.01                                    
+                text_maxlength: 512                                     	(default: 200)
+                   total_steps: 100                                     	(default: 1000)
+                    train_data: ['/home/016037047/atlas/atlas_data/nq_data/team2-split25.jsonl']	(default: [])
+               train_retriever: True                                    	(default: False)
+             use_file_passages: False                                   
+use_gradient_checkpoint_reader: True                                    	(default: False)
+use_gradient_checkpoint_retriever: True                                    	(default: False)
+                  warmup_steps: 50                                      	(default: 1000)
+                  weight_decay: 0.0                                     	(default: 0.1)
+                    world_size: 1                                       	(default: None)
+                 write_results: True                                    	(default: False)
+
+[05/07/2023 16:17:56] {train.py:263} INFO - world size: 1
+[05/07/2023 16:17:56] {index_io.py:87} INFO - Loading passages from: ['/home/016037047/atlas/atlas_data/corpora/wiki/enwiki-dec2018/unified-passage-set-v1.jsonl']
+[05/07/2023 16:17:56] {model_io.py:130} INFO - Loading /lts/home/016037047/atlas/atlas_data/models/atlas/large
+[05/07/2023 16:17:56] {model_io.py:131} INFO - loading checkpoint /lts/home/016037047/atlas/atlas_data/models/atlas/large/model.pth.tar
+[05/07/2023 16:18:12] {model_io.py:194} INFO - Model loaded from /home/016037047/atlas/atlas_data/models/atlas/large/
+[05/07/2023 16:18:12] {sharded_ddp.py:177} INFO - Training is not really distributed, single rank. Deactivating buckets
+[05/07/2023 16:18:12] {sharded_ddp.py:179} INFO - ShardedDDP bucket size: 0.00M parameters, model size 746.87M parameters
+[05/07/2023 16:18:12] {sharded_ddp.py:177} INFO - Training is not really distributed, single rank. Deactivating buckets
+[05/07/2023 16:18:12] {sharded_ddp.py:179} INFO - ShardedDDP bucket size: 0.00M parameters, model size 103.85M parameters
+[05/07/2023 16:18:12] {train.py:288} INFO - Start training
+[05/07/2023 16:18:24] {atlas.py:84} INFO - 3593 passages encoded on process: 0
+[05/07/2023 16:18:29] {train.py:152} INFO - 1 / 100 | loss/reader_loss: 11.6 | loss/retriever_loss: 0.0336 | loss/train_loss: 11.6 | runtime/backward: 0.486 | runtime/forward: 0.433 | runtime/indexing: 6.92 | runtime/model_update: 0.905 | runtime/retrieve: 0.0199 | runtime/search: 0.00462 | runtime/train_step: 1.83 | lr: 4.7e-06 | Memory: 16.0 GiB
+[05/07/2023 16:18:30] {train.py:152} INFO - 2 / 100 | loss/reader_loss: 13.2 | loss/retriever_loss: 0.0402 | loss/train_loss: 13.3 | runtime/backward: 0.489 | runtime/forward: 0.404 | runtime/model_update: 0.884 | runtime/retrieve: 0.0179 | runtime/search: 0.0048 | runtime/train_step: 1.78 | lr: 5.4e-06 | Memory: 17.0 GiB
+[05/07/2023 16:18:32] {train.py:152} INFO - 3 / 100 | loss/reader_loss: 12.4 | loss/retriever_loss: 0.0429 | loss/train_loss: 12.5 | runtime/backward: 0.488 | runtime/forward: 0.396 | runtime/model_update: 0.884 | runtime/retrieve: 0.0172 | runtime/search: 0.00472 | runtime/train_step: 1.77 | lr: 6.2e-06 | Memory: 17.0 GiB
+[05/07/2023 16:18:34] {train.py:152} INFO - 4 / 100 | loss/reader_loss: 12 | loss/retriever_loss: 0.0104 | loss/train_loss: 12 | runtime/backward: 0.491 | runtime/forward: 0.392 | runtime/model_update: 0.885 | runtime/retrieve: 0.0169 | runtime/search: 0.00465 | runtime/train_step: 1.77 | lr: 6.9e-06 | Memory: 17.0 GiB
+[05/07/2023 16:18:36] {train.py:152} INFO - 5 / 100 | loss/reader_loss: 12.5 | loss/retriever_loss: 0.0681 | loss/train_loss: 12.6 | runtime/backward: 0.489 | runtime/forward: 0.395 | runtime/model_update: 0.884 | runtime/retrieve: 0.0171 | runtime/search: 0.00484 | runtime/train_step: 1.77 | lr: 7.6e-06 | Memory: 17.0 GiB
+[05/07/2023 16:18:38] {train.py:152} INFO - 6 / 100 | loss/reader_loss: 10.8 | loss/retriever_loss: 0.0407 | loss/train_loss: 10.8 | runtime/backward: 0.49 | runtime/forward: 0.398 | runtime/model_update: 0.89 | runtime/retrieve: 0.0174 | runtime/search: 0.00474 | runtime/train_step: 1.78 | lr: 8.3e-06 | Memory: 17.0 GiB
+[05/07/2023 16:18:39] {train.py:152} INFO - 7 / 100 | loss/reader_loss: 9.5 | loss/retriever_loss: 0.0123 | loss/train_loss: 9.51 | runtime/backward: 0.486 | runtime/forward: 0.405 | runtime/model_update: 0.883 | runtime/retrieve: 0.0177 | runtime/search: 0.00468 | runtime/train_step: 1.78 | lr: 9e-06 | Memory: 17.0 GiB
+[05/07/2023 16:18:41] {train.py:152} INFO - 8 / 100 | loss/reader_loss: 11.9 | loss/retriever_loss: 0.032 | loss/train_loss: 12 | runtime/backward: 0.489 | runtime/forward: 0.39 | runtime/model_update: 0.888 | runtime/retrieve: 0.0171 | runtime/search: 0.0047 | runtime/train_step: 1.77 | lr: 9.8e-06 | Memory: 17.0 GiB
+[05/07/2023 16:18:43] {train.py:152} INFO - 9 / 100 | loss/reader_loss: 8.75 | loss/retriever_loss: 0.0245 | loss/train_loss: 8.77 | runtime/backward: 0.506 | runtime/forward: 0.406 | runtime/model_update: 0.889 | runtime/retrieve: 0.0178 | runtime/search: 0.00477 | runtime/train_step: 1.8 | lr: 1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:18:45] {train.py:152} INFO - 10 / 100 | loss/reader_loss: 3.47 | loss/retriever_loss: 0.0662 | loss/train_loss: 3.53 | runtime/backward: 0.495 | runtime/forward: 0.406 | runtime/model_update: 0.879 | runtime/retrieve: 0.0177 | runtime/search: 0.00478 | runtime/train_step: 1.78 | lr: 1.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:19:45] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-10.jsonl
+[05/07/2023 16:19:46] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 1.310 f1 | 9.132 eval_loss
+[05/07/2023 16:19:47] {train.py:152} INFO - 11 / 100 | loss/reader_loss: 7.81 | loss/retriever_loss: 0.0146 | loss/train_loss: 7.83 | runtime/backward: 0.487 | runtime/forward: 0.403 | runtime/model_update: 0.88 | runtime/retrieve: 0.0181 | runtime/search: 0.0048 | runtime/train_step: 1.77 | lr: 1.2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:19:49] {train.py:152} INFO - 12 / 100 | loss/reader_loss: 4.16 | loss/retriever_loss: 0.00849 | loss/train_loss: 4.16 | runtime/backward: 0.505 | runtime/forward: 0.405 | runtime/model_update: 0.88 | runtime/retrieve: 0.0174 | runtime/search: 0.00472 | runtime/train_step: 1.79 | lr: 1.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:19:51] {train.py:152} INFO - 13 / 100 | loss/reader_loss: 8.44 | loss/retriever_loss: 0.0147 | loss/train_loss: 8.45 | runtime/backward: 0.507 | runtime/forward: 0.398 | runtime/model_update: 0.886 | runtime/retrieve: 0.0174 | runtime/search: 0.00483 | runtime/train_step: 1.79 | lr: 1.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:19:53] {train.py:152} INFO - 14 / 100 | loss/reader_loss: 6.88 | loss/retriever_loss: 0.0263 | loss/train_loss: 6.9 | runtime/backward: 0.504 | runtime/forward: 0.399 | runtime/model_update: 0.871 | runtime/retrieve: 0.0177 | runtime/search: 0.00468 | runtime/train_step: 1.78 | lr: 1.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:19:55] {train.py:152} INFO - 15 / 100 | loss/reader_loss: 1.84 | loss/retriever_loss: 0.0128 | loss/train_loss: 1.85 | runtime/backward: 0.502 | runtime/forward: 0.396 | runtime/model_update: 0.876 | runtime/retrieve: 0.017 | runtime/search: 0.00476 | runtime/train_step: 1.78 | lr: 1.5e-05 | Memory: 17.0 GiB
+[05/07/2023 16:19:56] {train.py:152} INFO - 16 / 100 | loss/reader_loss: 3.64 | loss/retriever_loss: 0.0159 | loss/train_loss: 3.66 | runtime/backward: 0.507 | runtime/forward: 0.399 | runtime/model_update: 0.876 | runtime/retrieve: 0.0169 | runtime/search: 0.00472 | runtime/train_step: 1.78 | lr: 1.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:19:58] {train.py:152} INFO - 17 / 100 | loss/reader_loss: 3.27 | loss/retriever_loss: 0.0531 | loss/train_loss: 3.32 | runtime/backward: 0.498 | runtime/forward: 0.397 | runtime/model_update: 0.882 | runtime/retrieve: 0.0173 | runtime/search: 0.00487 | runtime/train_step: 1.78 | lr: 1.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:20:00] {train.py:152} INFO - 18 / 100 | loss/reader_loss: 2.7 | loss/retriever_loss: 0.0168 | loss/train_loss: 2.72 | runtime/backward: 0.506 | runtime/forward: 0.404 | runtime/model_update: 0.881 | runtime/retrieve: 0.0177 | runtime/search: 0.00489 | runtime/train_step: 1.79 | lr: 1.7e-05 | Memory: 17.0 GiB
+[05/07/2023 16:20:02] {train.py:152} INFO - 19 / 100 | loss/reader_loss: 1.42 | loss/retriever_loss: 0.0309 | loss/train_loss: 1.45 | runtime/backward: 0.504 | runtime/forward: 0.401 | runtime/model_update: 0.876 | runtime/retrieve: 0.0177 | runtime/search: 0.00487 | runtime/train_step: 1.78 | lr: 1.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:20:04] {train.py:152} INFO - 20 / 100 | loss/reader_loss: 2.41 | loss/retriever_loss: 0.0267 | loss/train_loss: 2.43 | runtime/backward: 0.505 | runtime/forward: 0.403 | runtime/model_update: 0.883 | runtime/retrieve: 0.0179 | runtime/search: 0.00485 | runtime/train_step: 1.79 | lr: 1.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:15] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-20.jsonl
+[05/07/2023 16:22:15] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 9.344 f1 | 3.097 eval_loss
+[05/07/2023 16:22:17] {train.py:152} INFO - 21 / 100 | loss/reader_loss: 1.42 | loss/retriever_loss: 0.0107 | loss/train_loss: 1.43 | runtime/backward: 0.488 | runtime/forward: 0.401 | runtime/model_update: 0.877 | runtime/retrieve: 0.0176 | runtime/search: 0.00482 | runtime/train_step: 1.77 | lr: 1.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:19] {train.py:152} INFO - 22 / 100 | loss/reader_loss: 1.19 | loss/retriever_loss: 0.0614 | loss/train_loss: 1.25 | runtime/backward: 0.483 | runtime/forward: 0.395 | runtime/model_update: 0.889 | runtime/retrieve: 0.0175 | runtime/search: 0.00472 | runtime/train_step: 1.77 | lr: 2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:21] {train.py:152} INFO - 23 / 100 | loss/reader_loss: 2.53 | loss/retriever_loss: 0.0165 | loss/train_loss: 2.55 | runtime/backward: 0.491 | runtime/forward: 0.407 | runtime/model_update: 0.882 | runtime/retrieve: 0.0215 | runtime/search: 0.00906 | runtime/train_step: 1.78 | lr: 2.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:23] {train.py:152} INFO - 24 / 100 | loss/reader_loss: 0.463 | loss/retriever_loss: 0.00406 | loss/train_loss: 0.467 | runtime/backward: 0.484 | runtime/forward: 0.403 | runtime/model_update: 0.882 | runtime/retrieve: 0.0173 | runtime/search: 0.00491 | runtime/train_step: 1.77 | lr: 2.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:24] {train.py:152} INFO - 25 / 100 | loss/reader_loss: 1.32 | loss/retriever_loss: 0.0368 | loss/train_loss: 1.36 | runtime/backward: 0.489 | runtime/forward: 0.399 | runtime/model_update: 0.885 | runtime/retrieve: 0.0174 | runtime/search: 0.00476 | runtime/train_step: 1.77 | lr: 2.2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:26] {train.py:152} INFO - 26 / 100 | loss/reader_loss: 2.84 | loss/retriever_loss: 0.0049 | loss/train_loss: 2.85 | runtime/backward: 0.491 | runtime/forward: 0.404 | runtime/model_update: 0.886 | runtime/retrieve: 0.0172 | runtime/search: 0.00482 | runtime/train_step: 1.78 | lr: 2.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:28] {train.py:152} INFO - 27 / 100 | loss/reader_loss: 1.06 | loss/retriever_loss: 0.0217 | loss/train_loss: 1.08 | runtime/backward: 0.486 | runtime/forward: 0.405 | runtime/model_update: 0.882 | runtime/retrieve: 0.0172 | runtime/search: 0.00485 | runtime/train_step: 1.77 | lr: 2.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:30] {train.py:152} INFO - 28 / 100 | loss/reader_loss: 0.258 | loss/retriever_loss: 0.0032 | loss/train_loss: 0.261 | runtime/backward: 0.49 | runtime/forward: 0.4 | runtime/model_update: 0.876 | runtime/retrieve: 0.0173 | runtime/search: 0.00479 | runtime/train_step: 1.77 | lr: 2.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:32] {train.py:152} INFO - 29 / 100 | loss/reader_loss: 1.55 | loss/retriever_loss: 0.00467 | loss/train_loss: 1.55 | runtime/backward: 0.491 | runtime/forward: 0.4 | runtime/model_update: 0.891 | runtime/retrieve: 0.0173 | runtime/search: 0.0049 | runtime/train_step: 1.78 | lr: 2.5e-05 | Memory: 17.0 GiB
+[05/07/2023 16:22:33] {train.py:152} INFO - 30 / 100 | loss/reader_loss: 1.98 | loss/retriever_loss: 0.0204 | loss/train_loss: 2 | runtime/backward: 0.487 | runtime/forward: 0.4 | runtime/model_update: 0.882 | runtime/retrieve: 0.018 | runtime/search: 0.00564 | runtime/train_step: 1.77 | lr: 2.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:37] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-30.jsonl
+[05/07/2023 16:25:38] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 20.725 f1 | 2.075 eval_loss
+[05/07/2023 16:25:40] {train.py:152} INFO - 31 / 100 | loss/reader_loss: 1.66 | loss/retriever_loss: 0.00486 | loss/train_loss: 1.67 | runtime/backward: 0.502 | runtime/forward: 0.399 | runtime/model_update: 0.881 | runtime/retrieve: 0.0175 | runtime/search: 0.00475 | runtime/train_step: 1.78 | lr: 2.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:41] {train.py:152} INFO - 32 / 100 | loss/reader_loss: 0.469 | loss/retriever_loss: 0.0117 | loss/train_loss: 0.48 | runtime/backward: 0.508 | runtime/forward: 0.405 | runtime/model_update: 0.873 | runtime/retrieve: 0.0178 | runtime/search: 0.00478 | runtime/train_step: 1.79 | lr: 2.7e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:43] {train.py:152} INFO - 33 / 100 | loss/reader_loss: 3.3 | loss/retriever_loss: 0.0401 | loss/train_loss: 3.34 | runtime/backward: 0.505 | runtime/forward: 0.398 | runtime/model_update: 0.886 | runtime/retrieve: 0.0172 | runtime/search: 0.00482 | runtime/train_step: 1.79 | lr: 2.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:45] {train.py:152} INFO - 34 / 100 | loss/reader_loss: 0.148 | loss/retriever_loss: 0.00682 | loss/train_loss: 0.155 | runtime/backward: 0.499 | runtime/forward: 0.404 | runtime/model_update: 0.884 | runtime/retrieve: 0.0171 | runtime/search: 0.00479 | runtime/train_step: 1.79 | lr: 2.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:47] {train.py:152} INFO - 35 / 100 | loss/reader_loss: 0.535 | loss/retriever_loss: 0.0149 | loss/train_loss: 0.55 | runtime/backward: 0.504 | runtime/forward: 0.402 | runtime/model_update: 0.879 | runtime/retrieve: 0.0172 | runtime/search: 0.00475 | runtime/train_step: 1.79 | lr: 2.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:49] {train.py:152} INFO - 36 / 100 | loss/reader_loss: 2.39 | loss/retriever_loss: 0.00927 | loss/train_loss: 2.4 | runtime/backward: 0.506 | runtime/forward: 0.397 | runtime/model_update: 0.877 | runtime/retrieve: 0.0173 | runtime/search: 0.00475 | runtime/train_step: 1.78 | lr: 3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:51] {train.py:152} INFO - 37 / 100 | loss/reader_loss: 0.199 | loss/retriever_loss: 0.01 | loss/train_loss: 0.209 | runtime/backward: 0.507 | runtime/forward: 0.394 | runtime/model_update: 0.879 | runtime/retrieve: 0.017 | runtime/search: 0.00478 | runtime/train_step: 1.78 | lr: 3.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:52] {train.py:152} INFO - 38 / 100 | loss/reader_loss: 1.73 | loss/retriever_loss: 0.0152 | loss/train_loss: 1.75 | runtime/backward: 0.507 | runtime/forward: 0.397 | runtime/model_update: 0.879 | runtime/retrieve: 0.0171 | runtime/search: 0.00488 | runtime/train_step: 1.78 | lr: 3.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:54] {train.py:152} INFO - 39 / 100 | loss/reader_loss: 0.114 | loss/retriever_loss: 0.0283 | loss/train_loss: 0.142 | runtime/backward: 0.491 | runtime/forward: 0.405 | runtime/model_update: 0.885 | runtime/retrieve: 0.0178 | runtime/search: 0.00477 | runtime/train_step: 1.78 | lr: 3.2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:25:56] {train.py:152} INFO - 40 / 100 | loss/reader_loss: 0.684 | loss/retriever_loss: 0.0154 | loss/train_loss: 0.699 | runtime/backward: 0.493 | runtime/forward: 0.4 | runtime/model_update: 0.883 | runtime/retrieve: 0.0174 | runtime/search: 0.00486 | runtime/train_step: 1.78 | lr: 3.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:04] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-40.jsonl
+[05/07/2023 16:30:05] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 26.061 f1 | 2.028 eval_loss
+[05/07/2023 16:30:06] {train.py:152} INFO - 41 / 100 | loss/reader_loss: 0.5 | loss/retriever_loss: 0.0117 | loss/train_loss: 0.512 | runtime/backward: 0.492 | runtime/forward: 0.399 | runtime/model_update: 0.886 | runtime/retrieve: 0.0177 | runtime/search: 0.00478 | runtime/train_step: 1.78 | lr: 3.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:08] {train.py:152} INFO - 42 / 100 | loss/reader_loss: 0.0525 | loss/retriever_loss: 0.0073 | loss/train_loss: 0.0598 | runtime/backward: 0.496 | runtime/forward: 0.402 | runtime/model_update: 0.897 | runtime/retrieve: 0.0175 | runtime/search: 0.00476 | runtime/train_step: 1.8 | lr: 3.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:10] {train.py:152} INFO - 43 / 100 | loss/reader_loss: 0.641 | loss/retriever_loss: 0.0259 | loss/train_loss: 0.667 | runtime/backward: 0.504 | runtime/forward: 0.399 | runtime/model_update: 0.889 | runtime/retrieve: 0.018 | runtime/search: 0.00482 | runtime/train_step: 1.79 | lr: 3.5e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:12] {train.py:152} INFO - 44 / 100 | loss/reader_loss: 1.64 | loss/retriever_loss: 0.0256 | loss/train_loss: 1.67 | runtime/backward: 0.497 | runtime/forward: 0.398 | runtime/model_update: 0.889 | runtime/retrieve: 0.0172 | runtime/search: 0.00476 | runtime/train_step: 1.79 | lr: 3.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:14] {train.py:152} INFO - 45 / 100 | loss/reader_loss: 1.17 | loss/retriever_loss: 0.00778 | loss/train_loss: 1.18 | runtime/backward: 0.494 | runtime/forward: 0.404 | runtime/model_update: 0.885 | runtime/retrieve: 0.0189 | runtime/search: 0.00482 | runtime/train_step: 1.78 | lr: 3.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:16] {train.py:152} INFO - 46 / 100 | loss/reader_loss: 1.97 | loss/retriever_loss: 0.00502 | loss/train_loss: 1.97 | runtime/backward: 0.495 | runtime/forward: 0.404 | runtime/model_update: 0.897 | runtime/retrieve: 0.0183 | runtime/search: 0.00556 | runtime/train_step: 1.8 | lr: 3.7e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:17] {train.py:152} INFO - 47 / 100 | loss/reader_loss: 1.58 | loss/retriever_loss: 0.0214 | loss/train_loss: 1.6 | runtime/backward: 0.489 | runtime/forward: 0.406 | runtime/model_update: 0.888 | runtime/retrieve: 0.0171 | runtime/search: 0.00476 | runtime/train_step: 1.78 | lr: 3.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:19] {train.py:152} INFO - 48 / 100 | loss/reader_loss: 1.18 | loss/retriever_loss: 0.0277 | loss/train_loss: 1.21 | runtime/backward: 0.492 | runtime/forward: 0.412 | runtime/model_update: 0.882 | runtime/retrieve: 0.0178 | runtime/search: 0.00483 | runtime/train_step: 1.79 | lr: 3.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:21] {train.py:152} INFO - 49 / 100 | loss/reader_loss: 1.88 | loss/retriever_loss: 0.0336 | loss/train_loss: 1.92 | runtime/backward: 0.494 | runtime/forward: 0.407 | runtime/model_update: 0.888 | runtime/retrieve: 0.0174 | runtime/search: 0.00487 | runtime/train_step: 1.79 | lr: 3.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:30:23] {train.py:152} INFO - 50 / 100 | loss/reader_loss: 1.8 | loss/retriever_loss: 0.00765 | loss/train_loss: 1.8 | runtime/backward: 0.508 | runtime/forward: 0.406 | runtime/model_update: 0.892 | runtime/retrieve: 0.0172 | runtime/search: 0.00478 | runtime/train_step: 1.81 | lr: 4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:29] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-50.jsonl
+[05/07/2023 16:34:29] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 30.041 f1 | 1.857 eval_loss
+[05/07/2023 16:34:31] {train.py:152} INFO - 51 / 100 | loss/reader_loss: 0.0175 | loss/retriever_loss: 0.017 | loss/train_loss: 0.0344 | runtime/backward: 0.506 | runtime/forward: 0.398 | runtime/model_update: 0.886 | runtime/retrieve: 0.0187 | runtime/search: 0.00476 | runtime/train_step: 1.79 | lr: 3.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:33] {train.py:152} INFO - 52 / 100 | loss/reader_loss: 1.73 | loss/retriever_loss: 0.00729 | loss/train_loss: 1.73 | runtime/backward: 0.505 | runtime/forward: 0.403 | runtime/model_update: 0.885 | runtime/retrieve: 0.0174 | runtime/search: 0.00475 | runtime/train_step: 1.79 | lr: 3.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:34] {train.py:152} INFO - 53 / 100 | loss/reader_loss: 1.43 | loss/retriever_loss: 0.0055 | loss/train_loss: 1.44 | runtime/backward: 0.508 | runtime/forward: 0.399 | runtime/model_update: 0.888 | runtime/retrieve: 0.0169 | runtime/search: 0.00474 | runtime/train_step: 1.8 | lr: 3.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:36] {train.py:152} INFO - 54 / 100 | loss/reader_loss: 1.43 | loss/retriever_loss: 0.00214 | loss/train_loss: 1.43 | runtime/backward: 0.501 | runtime/forward: 0.405 | runtime/model_update: 0.888 | runtime/retrieve: 0.0172 | runtime/search: 0.00478 | runtime/train_step: 1.8 | lr: 3.7e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:38] {train.py:152} INFO - 55 / 100 | loss/reader_loss: 0.0135 | loss/retriever_loss: 0.0373 | loss/train_loss: 0.0508 | runtime/backward: 0.496 | runtime/forward: 0.403 | runtime/model_update: 0.885 | runtime/retrieve: 0.0174 | runtime/search: 0.00481 | runtime/train_step: 1.78 | lr: 3.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:40] {train.py:152} INFO - 56 / 100 | loss/reader_loss: 1.2 | loss/retriever_loss: 0.00517 | loss/train_loss: 1.2 | runtime/backward: 0.496 | runtime/forward: 0.401 | runtime/model_update: 0.885 | runtime/retrieve: 0.019 | runtime/search: 0.00476 | runtime/train_step: 1.78 | lr: 3.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:42] {train.py:152} INFO - 57 / 100 | loss/reader_loss: 0.875 | loss/retriever_loss: 0.0134 | loss/train_loss: 0.888 | runtime/backward: 0.508 | runtime/forward: 0.399 | runtime/model_update: 0.887 | runtime/retrieve: 0.0186 | runtime/search: 0.00494 | runtime/train_step: 1.8 | lr: 3.5e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:44] {train.py:152} INFO - 58 / 100 | loss/reader_loss: 0.412 | loss/retriever_loss: 0.00917 | loss/train_loss: 0.421 | runtime/backward: 0.496 | runtime/forward: 0.401 | runtime/model_update: 0.888 | runtime/retrieve: 0.0178 | runtime/search: 0.00487 | runtime/train_step: 1.79 | lr: 3.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:45] {train.py:152} INFO - 59 / 100 | loss/reader_loss: 0.0294 | loss/retriever_loss: 0.0088 | loss/train_loss: 0.0382 | runtime/backward: 0.5 | runtime/forward: 0.397 | runtime/model_update: 0.884 | runtime/retrieve: 0.0173 | runtime/search: 0.00483 | runtime/train_step: 1.78 | lr: 3.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:34:47] {train.py:152} INFO - 60 / 100 | loss/reader_loss: 0.299 | loss/retriever_loss: 0.0108 | loss/train_loss: 0.31 | runtime/backward: 0.496 | runtime/forward: 0.401 | runtime/model_update: 0.885 | runtime/retrieve: 0.0175 | runtime/search: 0.00482 | runtime/train_step: 1.78 | lr: 3.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:02] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-60.jsonl
+[05/07/2023 16:39:02] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 31.559 f1 | 1.969 eval_loss
+[05/07/2023 16:39:04] {train.py:152} INFO - 61 / 100 | loss/reader_loss: 0.0176 | loss/retriever_loss: 0.00973 | loss/train_loss: 0.0273 | runtime/backward: 0.499 | runtime/forward: 0.401 | runtime/model_update: 0.88 | runtime/retrieve: 0.0179 | runtime/search: 0.00481 | runtime/train_step: 1.78 | lr: 3.2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:06] {train.py:152} INFO - 62 / 100 | loss/reader_loss: 0.598 | loss/retriever_loss: 0.00806 | loss/train_loss: 0.606 | runtime/backward: 0.498 | runtime/forward: 0.401 | runtime/model_update: 0.874 | runtime/retrieve: 0.0173 | runtime/search: 0.00478 | runtime/train_step: 1.77 | lr: 3.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:08] {train.py:152} INFO - 63 / 100 | loss/reader_loss: 1.1 | loss/retriever_loss: 0.022 | loss/train_loss: 1.12 | runtime/backward: 0.501 | runtime/forward: 0.399 | runtime/model_update: 0.872 | runtime/retrieve: 0.0172 | runtime/search: 0.00472 | runtime/train_step: 1.77 | lr: 3.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:09] {train.py:152} INFO - 64 / 100 | loss/reader_loss: 0.0454 | loss/retriever_loss: 0.00386 | loss/train_loss: 0.0493 | runtime/backward: 0.496 | runtime/forward: 0.399 | runtime/model_update: 0.877 | runtime/retrieve: 0.0172 | runtime/search: 0.00475 | runtime/train_step: 1.77 | lr: 3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:11] {train.py:152} INFO - 65 / 100 | loss/reader_loss: 0.984 | loss/retriever_loss: 0.00985 | loss/train_loss: 0.994 | runtime/backward: 0.495 | runtime/forward: 0.397 | runtime/model_update: 0.881 | runtime/retrieve: 0.0171 | runtime/search: 0.00471 | runtime/train_step: 1.77 | lr: 2.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:13] {train.py:152} INFO - 66 / 100 | loss/reader_loss: 0.494 | loss/retriever_loss: 0.011 | loss/train_loss: 0.505 | runtime/backward: 0.499 | runtime/forward: 0.409 | runtime/model_update: 0.88 | runtime/retrieve: 0.0172 | runtime/search: 0.00473 | runtime/train_step: 1.79 | lr: 2.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:15] {train.py:152} INFO - 67 / 100 | loss/reader_loss: 0.179 | loss/retriever_loss: 0.0115 | loss/train_loss: 0.19 | runtime/backward: 0.487 | runtime/forward: 0.4 | runtime/model_update: 0.886 | runtime/retrieve: 0.017 | runtime/search: 0.00471 | runtime/train_step: 1.77 | lr: 2.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:17] {train.py:152} INFO - 68 / 100 | loss/reader_loss: 1.9 | loss/retriever_loss: 0.0123 | loss/train_loss: 1.91 | runtime/backward: 0.497 | runtime/forward: 0.401 | runtime/model_update: 0.889 | runtime/retrieve: 0.0176 | runtime/search: 0.0048 | runtime/train_step: 1.79 | lr: 2.7e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:19] {train.py:152} INFO - 69 / 100 | loss/reader_loss: 0.762 | loss/retriever_loss: 0.0129 | loss/train_loss: 0.775 | runtime/backward: 0.492 | runtime/forward: 0.402 | runtime/model_update: 0.88 | runtime/retrieve: 0.0177 | runtime/search: 0.00472 | runtime/train_step: 1.77 | lr: 2.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:39:20] {train.py:152} INFO - 70 / 100 | loss/reader_loss: 0.42 | loss/retriever_loss: 0.0179 | loss/train_loss: 0.438 | runtime/backward: 0.491 | runtime/forward: 0.398 | runtime/model_update: 0.883 | runtime/retrieve: 0.0172 | runtime/search: 0.00469 | runtime/train_step: 1.77 | lr: 2.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:22] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-70.jsonl
+[05/07/2023 16:43:22] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 31.215 f1 | 2.084 eval_loss
+[05/07/2023 16:43:24] {train.py:152} INFO - 71 / 100 | loss/reader_loss: 0.0225 | loss/retriever_loss: 0.00746 | loss/train_loss: 0.0299 | runtime/backward: 0.51 | runtime/forward: 0.407 | runtime/model_update: 0.889 | runtime/retrieve: 0.0184 | runtime/search: 0.00484 | runtime/train_step: 1.81 | lr: 2.5e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:26] {train.py:152} INFO - 72 / 100 | loss/reader_loss: 2.16 | loss/retriever_loss: 0.00301 | loss/train_loss: 2.16 | runtime/backward: 0.497 | runtime/forward: 0.398 | runtime/model_update: 0.887 | runtime/retrieve: 0.0174 | runtime/search: 0.00471 | runtime/train_step: 1.78 | lr: 2.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:27] {train.py:152} INFO - 73 / 100 | loss/reader_loss: 0.0123 | loss/retriever_loss: 0.0154 | loss/train_loss: 0.0276 | runtime/backward: 0.506 | runtime/forward: 0.401 | runtime/model_update: 0.88 | runtime/retrieve: 0.0173 | runtime/search: 0.00481 | runtime/train_step: 1.79 | lr: 2.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:29] {train.py:152} INFO - 74 / 100 | loss/reader_loss: 0.0016 | loss/retriever_loss: 0.0209 | loss/train_loss: 0.0225 | runtime/backward: 0.494 | runtime/forward: 0.401 | runtime/model_update: 0.875 | runtime/retrieve: 0.0171 | runtime/search: 0.00469 | runtime/train_step: 1.77 | lr: 2.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:31] {train.py:152} INFO - 75 / 100 | loss/reader_loss: 2.84 | loss/retriever_loss: 0.0125 | loss/train_loss: 2.86 | runtime/backward: 0.487 | runtime/forward: 0.402 | runtime/model_update: 0.884 | runtime/retrieve: 0.0172 | runtime/search: 0.00471 | runtime/train_step: 1.77 | lr: 2.2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:33] {train.py:152} INFO - 76 / 100 | loss/reader_loss: 0.0216 | loss/retriever_loss: 0.0028 | loss/train_loss: 0.0244 | runtime/backward: 0.5 | runtime/forward: 0.401 | runtime/model_update: 0.884 | runtime/retrieve: 0.0171 | runtime/search: 0.00473 | runtime/train_step: 1.79 | lr: 2.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:35] {train.py:152} INFO - 77 / 100 | loss/reader_loss: 0.00516 | loss/retriever_loss: 0.0182 | loss/train_loss: 0.0234 | runtime/backward: 0.48 | runtime/forward: 0.398 | runtime/model_update: 0.878 | runtime/retrieve: 0.0172 | runtime/search: 0.00481 | runtime/train_step: 1.76 | lr: 2.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:37] {train.py:152} INFO - 78 / 100 | loss/reader_loss: 0.777 | loss/retriever_loss: 0.00643 | loss/train_loss: 0.784 | runtime/backward: 0.493 | runtime/forward: 0.402 | runtime/model_update: 0.89 | runtime/retrieve: 0.0171 | runtime/search: 0.00474 | runtime/train_step: 1.78 | lr: 2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:38] {train.py:152} INFO - 79 / 100 | loss/reader_loss: 0.208 | loss/retriever_loss: 0.00594 | loss/train_loss: 0.214 | runtime/backward: 0.495 | runtime/forward: 0.398 | runtime/model_update: 0.883 | runtime/retrieve: 0.0172 | runtime/search: 0.00469 | runtime/train_step: 1.78 | lr: 1.9e-05 | Memory: 17.0 GiB
+[05/07/2023 16:43:40] {train.py:152} INFO - 80 / 100 | loss/reader_loss: 0.684 | loss/retriever_loss: 0.00565 | loss/train_loss: 0.689 | runtime/backward: 0.501 | runtime/forward: 0.402 | runtime/model_update: 0.897 | runtime/retrieve: 0.018 | runtime/search: 0.00471 | runtime/train_step: 1.8 | lr: 1.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:37] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-80.jsonl
+[05/07/2023 16:47:37] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 31.363 f1 | 2.062 eval_loss
+[05/07/2023 16:47:39] {train.py:152} INFO - 81 / 100 | loss/reader_loss: 0.00534 | loss/retriever_loss: 0.00258 | loss/train_loss: 0.00792 | runtime/backward: 0.495 | runtime/forward: 0.409 | runtime/model_update: 0.884 | runtime/retrieve: 0.0233 | runtime/search: 0.0099 | runtime/train_step: 1.79 | lr: 1.8e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:41] {train.py:152} INFO - 82 / 100 | loss/reader_loss: 0.301 | loss/retriever_loss: 0.00526 | loss/train_loss: 0.306 | runtime/backward: 0.505 | runtime/forward: 0.4 | runtime/model_update: 0.887 | runtime/retrieve: 0.0173 | runtime/search: 0.00479 | runtime/train_step: 1.79 | lr: 1.7e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:43] {train.py:152} INFO - 83 / 100 | loss/reader_loss: 0.00546 | loss/retriever_loss: 0.00877 | loss/train_loss: 0.0142 | runtime/backward: 0.492 | runtime/forward: 0.394 | runtime/model_update: 0.88 | runtime/retrieve: 0.0174 | runtime/search: 0.00481 | runtime/train_step: 1.77 | lr: 1.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:44] {train.py:152} INFO - 84 / 100 | loss/reader_loss: 0.00146 | loss/retriever_loss: 0.00323 | loss/train_loss: 0.00469 | runtime/backward: 0.487 | runtime/forward: 0.397 | runtime/model_update: 0.881 | runtime/retrieve: 0.017 | runtime/search: 0.00468 | runtime/train_step: 1.77 | lr: 1.6e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:46] {train.py:152} INFO - 85 / 100 | loss/reader_loss: 0.289 | loss/retriever_loss: 0.025 | loss/train_loss: 0.314 | runtime/backward: 0.481 | runtime/forward: 0.394 | runtime/model_update: 0.89 | runtime/retrieve: 0.0173 | runtime/search: 0.00473 | runtime/train_step: 1.76 | lr: 1.5e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:48] {train.py:152} INFO - 86 / 100 | loss/reader_loss: 0.598 | loss/retriever_loss: 0.00539 | loss/train_loss: 0.603 | runtime/backward: 0.485 | runtime/forward: 0.4 | runtime/model_update: 0.896 | runtime/retrieve: 0.0173 | runtime/search: 0.00469 | runtime/train_step: 1.78 | lr: 1.4e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:50] {train.py:152} INFO - 87 / 100 | loss/reader_loss: 1.74 | loss/retriever_loss: 0.00158 | loss/train_loss: 1.74 | runtime/backward: 0.504 | runtime/forward: 0.392 | runtime/model_update: 0.884 | runtime/retrieve: 0.0179 | runtime/search: 0.00555 | runtime/train_step: 1.78 | lr: 1.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:52] {train.py:152} INFO - 88 / 100 | loss/reader_loss: 0.00116 | loss/retriever_loss: 0.0135 | loss/train_loss: 0.0147 | runtime/backward: 0.489 | runtime/forward: 0.395 | runtime/model_update: 0.883 | runtime/retrieve: 0.0178 | runtime/search: 0.00542 | runtime/train_step: 1.77 | lr: 1.3e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:54] {train.py:152} INFO - 89 / 100 | loss/reader_loss: 0.0288 | loss/retriever_loss: 0.00552 | loss/train_loss: 0.0343 | runtime/backward: 0.49 | runtime/forward: 0.403 | runtime/model_update: 0.892 | runtime/retrieve: 0.0173 | runtime/search: 0.00473 | runtime/train_step: 1.79 | lr: 1.2e-05 | Memory: 17.0 GiB
+[05/07/2023 16:47:55] {train.py:152} INFO - 90 / 100 | loss/reader_loss: 1.37 | loss/retriever_loss: 0.00383 | loss/train_loss: 1.37 | runtime/backward: 0.486 | runtime/forward: 0.41 | runtime/model_update: 0.885 | runtime/retrieve: 0.0191 | runtime/search: 0.00484 | runtime/train_step: 1.78 | lr: 1.1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:51:44] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-90.jsonl
+[05/07/2023 16:51:44] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 31.947 f1 | 2.077 eval_loss
+[05/07/2023 16:51:46] {train.py:152} INFO - 91 / 100 | loss/reader_loss: 0.379 | loss/retriever_loss: 0.00717 | loss/train_loss: 0.386 | runtime/backward: 0.501 | runtime/forward: 0.401 | runtime/model_update: 0.888 | runtime/retrieve: 0.0198 | runtime/search: 0.0048 | runtime/train_step: 1.79 | lr: 1e-05 | Memory: 17.0 GiB
+[05/07/2023 16:51:48] {train.py:152} INFO - 92 / 100 | loss/reader_loss: 0.895 | loss/retriever_loss: 0.00925 | loss/train_loss: 0.904 | runtime/backward: 0.494 | runtime/forward: 0.399 | runtime/model_update: 0.903 | runtime/retrieve: 0.0171 | runtime/search: 0.00468 | runtime/train_step: 1.8 | lr: 9.8e-06 | Memory: 17.0 GiB
+[05/07/2023 16:51:50] {train.py:152} INFO - 93 / 100 | loss/reader_loss: 2.36 | loss/retriever_loss: 0.00345 | loss/train_loss: 2.36 | runtime/backward: 0.496 | runtime/forward: 0.403 | runtime/model_update: 0.898 | runtime/retrieve: 0.0172 | runtime/search: 0.00469 | runtime/train_step: 1.8 | lr: 9e-06 | Memory: 17.0 GiB
+[05/07/2023 16:51:52] {train.py:152} INFO - 94 / 100 | loss/reader_loss: 0.715 | loss/retriever_loss: 0.00266 | loss/train_loss: 0.718 | runtime/backward: 0.5 | runtime/forward: 0.406 | runtime/model_update: 0.887 | runtime/retrieve: 0.0196 | runtime/search: 0.00483 | runtime/train_step: 1.79 | lr: 8.3e-06 | Memory: 17.0 GiB
+[05/07/2023 16:51:54] {train.py:152} INFO - 95 / 100 | loss/reader_loss: 0.0439 | loss/retriever_loss: 0.0242 | loss/train_loss: 0.0681 | runtime/backward: 0.501 | runtime/forward: 0.397 | runtime/model_update: 0.89 | runtime/retrieve: 0.0172 | runtime/search: 0.00472 | runtime/train_step: 1.79 | lr: 7.6e-06 | Memory: 17.0 GiB
+[05/07/2023 16:51:55] {train.py:152} INFO - 96 / 100 | loss/reader_loss: 0.0152 | loss/retriever_loss: 0.00765 | loss/train_loss: 0.0228 | runtime/backward: 0.5 | runtime/forward: 0.403 | runtime/model_update: 0.884 | runtime/retrieve: 0.0174 | runtime/search: 0.00477 | runtime/train_step: 1.79 | lr: 6.9e-06 | Memory: 17.0 GiB
+[05/07/2023 16:51:57] {train.py:152} INFO - 97 / 100 | loss/reader_loss: 1.45 | loss/retriever_loss: 0.0053 | loss/train_loss: 1.46 | runtime/backward: 0.502 | runtime/forward: 0.409 | runtime/model_update: 0.895 | runtime/retrieve: 0.0171 | runtime/search: 0.0047 | runtime/train_step: 1.81 | lr: 6.2e-06 | Memory: 17.0 GiB
+[05/07/2023 16:51:59] {train.py:152} INFO - 98 / 100 | loss/reader_loss: 0.0869 | loss/retriever_loss: 0.0112 | loss/train_loss: 0.0981 | runtime/backward: 0.505 | runtime/forward: 0.398 | runtime/model_update: 0.894 | runtime/retrieve: 0.0183 | runtime/search: 0.00488 | runtime/train_step: 1.8 | lr: 5.4e-06 | Memory: 17.0 GiB
+[05/07/2023 16:52:01] {train.py:152} INFO - 99 / 100 | loss/reader_loss: 0.00742 | loss/retriever_loss: 0.00927 | loss/train_loss: 0.0167 | runtime/backward: 0.494 | runtime/forward: 0.401 | runtime/model_update: 0.883 | runtime/retrieve: 0.018 | runtime/search: 0.00539 | runtime/train_step: 1.78 | lr: 4.7e-06 | Memory: 17.0 GiB
+[05/07/2023 16:52:03] {train.py:152} INFO - 100 / 100 | loss/reader_loss: 0.449 | loss/retriever_loss: 0.0025 | loss/train_loss: 0.452 | runtime/backward: 0.492 | runtime/forward: 0.399 | runtime/model_update: 0.887 | runtime/retrieve: 0.0172 | runtime/search: 0.00481 | runtime/train_step: 1.78 | lr: 4e-06 | Memory: 17.0 GiB
+[05/07/2023 16:55:53] {util.py:249} INFO - Writing dataset with scores at /home/016037047/atlas/atlas_data/experiments/alt_large_warmup_50_WeightDecay_0.001/evaluation2split1-step-100.jsonl
+[05/07/2023 16:55:53] {train.py:208} INFO - Dataset: evaluation2split1.jsonl | 0.000 exact_match | 31.635 f1 | 2.082 eval_loss

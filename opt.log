@@ -1,0 +1,95 @@
+
+            accumulation_steps: 1                                       
+                         alpha: 1.0                                     
+                         beta2: 0.999                                   
+                checkpoint_dir: /home/016037047/atlas/atlas_data/experiments/	(default: ./checkpoint/)
+                          clip: 1.0                                     
+                   closed_book: False                                   
+  compute_crossattention_stats: False                                   
+                decoder_format: None                                    
+         decoder_prompt_format: None                                    
+                        device: cuda:0                                  	(default: None)
+           dont_write_passages: False                                   
+                       dropout: 0.001                                   	(default: 0.1)
+                encoder_format: {query} title: {title} context: {text}  
+                       epsilon: 1e-06                                   
+                     eval_data: ['/home/016037047/atlas/atlas_data/nq_data/evaluation2split1.jsonl']	(default: [])
+                     eval_freq: 10                                      	(default: 500)
+               faiss_code_size: None                                    
+              faiss_index_type: flat                                    
+  filtering_overretrieve_ratio: 2                                       
+        freeze_retriever_steps: -1                                      
+     generation_length_penalty: 1.0                                     
+         generation_max_length: 128                                     
+         generation_min_length: None                                    
+          generation_num_beams: 1                                       
+                   global_rank: 0                                       	(default: None)
+               gold_score_mode: ppmean                                  
+                    index_mode: flat                                    
+                is_distributed: True                                    	(default: None)
+                       is_main: True                                    	(default: None)
+                  is_slurm_job: True                                    	(default: None)
+               load_index_path: None                                    
+                    local_rank: 0                                       	(default: -1)
+                      log_freq: 1                                       	(default: 100)
+                            lr: 4e-05                                   	(default: 0.0001)
+                  lr_retriever: 4e-05                                   	(default: 1e-05)
+                     main_addr: cs002                                   	(default: None)
+                     main_port: 15270                                   	(default: -1)
+          max_lm_context_ratio: 0.5                                     
+                  max_passages: -1                                      
+          min_lm_context_ratio: 0.5                                     
+     min_words_per_lm_instance: None                                    
+    mlm_mean_noise_span_length: 3                                       
+             mlm_noise_density: 0.15                                    
+                    model_path: /home/016037047/atlas/atlas_data/models/atlas/large/	(default: none)
+                     multi_gpu: False                                   	(default: None)
+                    multi_node: False                                   	(default: None)
+multiple_choice_eval_permutations: single                                  
+   multiple_choice_num_options: 4                                       
+multiple_choice_train_permutations: single                                  
+                     n_context: 10                                      	(default: 1)
+                n_gpu_per_node: 1                                       	(default: None)
+                       n_nodes: 1                                       	(default: None)
+n_to_rerank_with_retrieve_with_rerank: 128                                     
+                          name: alt_large_warmup_50_WeightDecay_0.001   	(default: experiment_name)
+                       node_id: 0                                       	(default: None)
+                      passages: ['/home/016037047/atlas/atlas_data/corpora/wiki/enwiki-dec2018/unified-passage-set-v1.jsonl']	(default: None)
+            per_gpu_batch_size: 1                                       
+   per_gpu_embedder_batch_size: 512                                     
+                     precision: bf16                                    	(default: fp32)
+              qa_prompt_format: question: {question} answer: <extra_id_0>
+ query_side_retriever_training: True                                    	(default: False)
+             reader_model_type: google/t5-large-lm-adapt                	(default: None)
+                 refresh_index: -1                                      
+                 retrieve_only: False                                   
+          retrieve_with_rerank: False                                   
+              retriever_format: {title} {text}                          
+          retriever_model_path: facebook/contriever                     
+           retriever_n_context: 10                                      	(default: 5)
+                     save_freq: 100                                     	(default: 5000)
+           save_index_n_shards: 128                                     
+               save_index_path: /home/016037047/atlas/atlas_data/experiments//alt_large50armup_20_WeightDecay_0.001/saved_index	(default: None)
+                save_optimizer: False                                   
+                     scheduler: linear                                  	(default: cosine)
+               scheduler_steps: None                                    
+                          seed: 0                                       
+                   shard_grads: True                                    	(default: False)
+                   shard_optim: True                                    	(default: False)
+                       shuffle: True                                    	(default: False)
+              target_maxlength: 16                                      	(default: None)
+                          task: qa                                      	(default: None)
+              temperature_gold: 1.0                                     	(default: 0.01)
+             temperature_score: 0.01                                    
+                text_maxlength: 512                                     	(default: 200)
+                   total_steps: 100                                     	(default: 1000)
+                    train_data: ['/home/016037047/atlas/atlas_data/nq_data/team2-split25.jsonl']	(default: [])
+               train_retriever: True                                    	(default: False)
+             use_file_passages: False                                   
+use_gradient_checkpoint_reader: True                                    	(default: False)
+use_gradient_checkpoint_retriever: True                                    	(default: False)
+                  warmup_steps: 50                                      	(default: 1000)
+                  weight_decay: 0.0                                     	(default: 0.1)
+                    world_size: 1                                       	(default: None)
+                 write_results: True                                    	(default: False)
+
